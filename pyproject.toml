@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyamigamods"
+version = "0.1.0"
+description = "stuff for amiga based on audacious-uade"
+authors = [
+    { name = "Loic Devaux", email = "devloic@gmail.com" }
+]
+dependencies = [
+    "cffi",
+    "sounddevice",
+    "pyaudio",
+    "watchfiles"
+
+]
