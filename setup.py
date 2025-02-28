@@ -1,6 +1,5 @@
 from setuptools.command.build_py import build_py
 import os
-import build_utils
 from setuptools import setup, find_packages
 
 # Define the Git repository URL and build directory
@@ -19,7 +18,7 @@ class CustomBuild(build_py):
 setup(
     name='pyamigamods',
     version='0.1',
-    packages=find_packages(),
+    packages=find_packages("build_utils"),
     cmdclass={'build_py': CustomBuild},  # Use the custom build command
     install_requires=[],  # Add dependencies if needed
     include_package_data=True,  # Include the shared library in the package
