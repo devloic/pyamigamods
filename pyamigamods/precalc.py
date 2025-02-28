@@ -20,6 +20,7 @@ ffi.cdef("""
             int size;
             char error_msg[1024];
             int exit_value;
+            int minsubsong;
         } module_t;
     """)
 ffi.cdef("void cffi_precalc(char *path , module_t *module);")
@@ -45,6 +46,7 @@ class Module:
         self.size = module.size
         self.error_msg = ffi.string(module.error_msg).decode("utf-8")
         self.exit_value = module.exit_value
+        self.minsubsong = module.minsubsong
         self.subsongs = []
         for i in range(module.nb_subsongs):
             self.subsongs.append(Subsong(i,module.subsongs[i].length,ffi.string(module.subsongs[i].status).decode("utf-8")))

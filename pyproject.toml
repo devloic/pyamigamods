@@ -5,14 +5,30 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pyamigamods"
 version = "0.1.0"
-description = "stuff for amiga based on audacious-uade"
+description = "stuff for amiga based on audacious-uade,libopenmpt,libxmp"
 authors = [
     { name = "Loic Devaux", email = "devloic@gmail.com" }
 ]
+readme = "README.md"
+keywords = ["amiga","mods","audacious-uade","uade", "libopenmpt", "libxmp"]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python",
+  "Programming Language :: C++",
+  "Programming Language :: C",
+]
+
 dependencies = [
     "cffi",
     "sounddevice",
     "pyaudio",
     "watchfiles"
-
 ]
+
+[project.urls]
+Homepage = "https://github.com/devloic/pyamigamods"
+Issues = "https://github.com/devloic/pyamigamods/issues"
+
+
+
