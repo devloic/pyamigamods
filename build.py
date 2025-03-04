@@ -25,7 +25,7 @@ class CustomBuildHook(BuildHookInterface):
         rebuild_uade = True
         rebuild_libxmp = False
         rebuild_libopenmpt = True
-        reconfigure_uade = False
+        reconfigure_uade = True
         print("calling_dir",calling_dir)
         build_dir = os.path.join(calling_dir, 'build')
         package_dir = calling_dir
