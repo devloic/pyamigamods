@@ -21,7 +21,7 @@ class CustomBuildHook(BuildHookInterface):
         my_env = os.environ.copy()
         my_env["CFLAGS"] = f"-fPIC -fvisibility=default -O2"
         my_env["CXXFLAGS"] = f"{my_env['CFLAGS']}"
-        enable = False
+        enable = True
         rebuild_uade = True
         reconfigure_uade = True
         print("calling_dir",calling_dir)
