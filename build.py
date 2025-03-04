@@ -23,7 +23,9 @@ class CustomBuildHook(BuildHookInterface):
         my_env["CXXFLAGS"] = f"{my_env['CFLAGS']}"
         enable = True
         rebuild_uade = True
-        reconfigure_uade = True
+        rebuild_libxmp = False
+        rebuild_libopenmpt = True
+        reconfigure_uade = False
         print("calling_dir",calling_dir)
         build_dir = os.path.join(calling_dir, 'build')
         package_dir = calling_dir
@@ -81,7 +83,7 @@ class CustomBuildHook(BuildHookInterface):
         my_env2["CXXFLAGS"] = f"{my_env['CFLAGS']}"
 
         # get/compile libxmp
-        if enable:
+        if rebuild_libxmp:
             libxmp_repo_url = "https://github.com/libxmp/libxmp"
             libxmp_dir = os.path.join(build_dir, 'libxmp')
             if not os.path.exists(libxmp_dir):
@@ -98,7 +100,7 @@ class CustomBuildHook(BuildHookInterface):
 
         # get/compile libopenmpt
         libopenmpt_version = "libopenmpt-0.7.13+release.autotools"
-        if enable:
+        if rebuild_libopenmpt:
             libopenmpt_url = "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.7.13+release.autotools.tar.gz"
             libopenmpt_dir = os.path.join(build_dir, 'libopenmpt')
             os.makedirs(libopenmpt_dir, exist_ok=True)
@@ -110,7 +112,7 @@ class CustomBuildHook(BuildHookInterface):
                 subprocess.check_call(["tar", "-xzvf", "./" + libopenmpt_version + ".tar.gz"])
             os.chdir("./" + libopenmpt_version)
             subprocess.check_call(["autoconf", "-i"])
-            os.chdir("../build")
+            os.chdir("./build")
             subprocess.check_call(
                 "../configure --enable-static --without-mpg123 --without-ogg --without-vorbis --without-vorbisfile",
                 env=my_env2, shell=True)
