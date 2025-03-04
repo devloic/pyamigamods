@@ -23,7 +23,7 @@ class CustomBuildHook(BuildHookInterface):
         my_env["CXXFLAGS"] = f"{my_env['CFLAGS']}"
         enable = False
         rebuild_uade = True
-        reconfigure_uade = False
+        reconfigure_uade = True
         print("calling_dir",calling_dir)
         build_dir = os.path.join(calling_dir, 'build')
         package_dir = calling_dir
