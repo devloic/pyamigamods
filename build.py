@@ -23,7 +23,7 @@ class CustomBuildHook(BuildHookInterface):
         my_env["CXXFLAGS"] = f"{my_env['CFLAGS']}"
         enable = True
         rebuild_uade = True
-        rebuild_libxmp = False
+        rebuild_libxmp = True
         rebuild_libopenmpt = True
         reconfigure_uade = True
         print("calling_dir",calling_dir)
